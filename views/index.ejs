@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/chatstyle.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		var username = { user: prompt('Enter your psuedoname: ')};
+		$(document).ready(function(){
+			var socket = io.connect();
+			$(window).on('load', function(){
+				socket.emit('initiate', username);
+				$('#title, #chat_box, form').hide(function(){
+					$('#title').html("Welcome: " + username.user).fadeIn('slow', function(){
+						$('#title').fadeOut('slow', function(){
+							$('#chat_box, form').fadeIn('slow');
+
+						});
+					});
+				});
+				return false;
+		    });
+
+			socket.on('contact', function(user){
+			console.log(user.chat_id.user);
+	  		$('#chat_box').append("<p><span class='user_enter'>" + user.chat_id.user + "</span> has entered the command center<p>");
+            });
+
+            $('#superchat').click(function(){
+            	var message = {
+            		user: username.user,
+            		message:$('#datagrab').val()
+            	}
+            	socket.emit('append_chat', message);
+            	$('#datagrab').val("");
+             console.log(message);
+             return false;
+            });
+            socket.on('fireback', function(data){
+            	console.log(data);
+            	$('#chat_box').append("<p><span class='user_id'>" + data.data.user + " : </span>" + data.data.message + "</p>");
+            });
+           
+
+		});
+	</script>
+</head>
+<div id = "wrapper">
+<body>
+	<h1 id="title"></h1>
+	<div id ="chat_box">
+		
+	</div>
+	<form>
+		<textarea id="datagrab" type="textarea"></textarea>
+		<button id="superchat"> ChAt </button>
+	</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+* {
+	margin: none;
+	padding: none;
+}
+
+body{
+	background-color: silver;
+}
+
+#wrapper {
+	margin: 0 auto 0 auto;
+	width: 600px;
+	overflow: none;
+	text-align: center;
+}
+
+p {
+	background-color: black;
+	color: white;
+	margin-left: 5px;
+}
+h1 {
+	color:red;
+	text-align: center;
+}
+
+#chat_box{
+	display:none;
+	text-align: left;
+	background-image: url('/images/background_skull.jpg'); 
+	background-repeat: no-repeat;
+	overflow: scroll;
+	background-size: auto;
+	margin: 0 auto 10px auto;
+	height: 400px;
+	width: 500px;
+
+}
+
+
+.user_id {
+	color: red;
+	font-weight: bold;
+}
+
+.user_enter {
+	color: blue;
+	font-weight: bold;
+}
+
+form {
+	display: none;
+	margin: none;
+	width: inherit;
+}
+
+#datagrab {
+	width: 435px;
+	height: 100px;
+	color: white;
+	margin-left: 50px;
+	padding: none;
+	float: left;
+	background-color: black;
+}
+
+form button {
+	float: left;
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	margin-left: 5px;
+	height: 105px;
+	width: 52px;
+}
+
