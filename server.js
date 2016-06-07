@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 app.get('/', function(req, res){
 	res.render('index');
 });
-var server = app.listen(2025, function(){
+var server = app.listen(process.env.PORT || 5000, function(){
 	console.log("HACK_THE_PLANET");
 });
 var io = require("socket.io").listen(server);
