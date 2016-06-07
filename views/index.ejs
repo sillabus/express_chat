@@ -24,7 +24,7 @@
 
 			socket.on('contact', function(user){
 			console.log(user.chat_id.user);
-	  		$('#chat_box').append("<p><span class='user_enter'>" + user.chat_id.user + "</span> has entered the command center<p>");
+	  		$('#chat_box').append("<p><span class='user_enter'>" + user.chat_id.user + "</span> has entered hackchat <span class='user_id'> !connection secure!<p>");
             });
 
             $('#superchat').click(function(){
@@ -53,7 +53,7 @@
 		
 	</div>
 	<form>
-		<textarea id="datagrab" type="textarea"></textarea>
+		<textarea id="datagrab" type="textarea" placeholder="WeLcOmE tO HaCkChAt : SaY SoMeThInG. .. ."></textarea>
 		<button id="superchat"> ChAt </button>
 	</form>
 </div>
